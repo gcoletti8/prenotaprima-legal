@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Termini di Servizio · PrenotaPrima</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0E1A2E;
+    --green: #2E7D52;
+    --bg: #F2F2F7;
+    --card: #FFFFFF;
+    --text: #1C1C1E;
+    --text-secondary: #6B6B6B;
+    --border: #E5E5EA;
+    --red: #C0392B;
+    --amber: #D97706;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  header {
+    background: var(--navy);
+    padding: 28px 24px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    background: var(--green);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .header-text h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  .header-text p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 1px;
+  }
+
+  .hero {
+    background: var(--navy);
+    padding: 0 24px 40px;
+    border-bottom: 3px solid var(--amber);
+  }
+
+  .hero-inner { max-width: 720px; margin: 0 auto; }
+
+  .hero h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(26px, 5vw, 38px);
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+  }
+
+  .section {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 12px rgba(14,26,46,0.06);
+    border-left: 4px solid transparent;
+  }
+
+  .section.highlight { border-left-color: var(--green); }
+  .section.warning { border-left-color: var(--amber); }
+  .section.danger { border-left-color: var(--red); }
+
+  .section-num {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 8px;
+  }
+
+  .section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .section p {
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    font-size: 15px;
+  }
+
+  .section p:last-child { margin-bottom: 0; }
+
+  .section ul {
+    list-style: none;
+    margin: 12px 0;
+  }
+
+  .section ul li {
+    font-size: 15px;
+    color: var(--text-secondary);
+    padding: 6px 0 6px 20px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section ul li:last-child { border-bottom: none; }
+
+  .section ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--amber);
+    font-weight: 600;
+  }
+
+  .subsection { margin: 20px 0; }
+
+  .subsection h3 {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  /* Warning box */
+  .alert {
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 14px;
+    margin: 16px 0;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+
+  .alert.amber {
+    background: rgba(217,119,6,0.08);
+    border: 1px solid rgba(217,119,6,0.2);
+    color: #92400E;
+  }
+
+  .alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+  /* Table */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 16px 0;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  thead { background: var(--navy); }
+
+  thead th {
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #F9F9FB; }
+
+  tbody td {
+    padding: 12px 16px;
+    color: var(--text-secondary);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  tbody td:first-child { font-weight: 500; color: var(--text); }
+
+  /* Titolare */
+  .titolare-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px 16px;
+    margin: 16px 0;
+    font-size: 15px;
+  }
+
+  .titolare-grid dt { font-weight: 500; color: var(--navy); white-space: nowrap; }
+  .titolare-grid dd { color: var(--text-secondary); }
+  .titolare-grid a { color: var(--green); text-decoration: none; }
+
+  footer {
+    background: var(--navy);
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  footer p {
+    color: rgba(255,255,255,0.4);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  footer strong { color: rgba(255,255,255,0.7); }
+
+  @media (max-width: 480px) {
+    .section { padding: 20px 16px; }
+    header { padding: 20px 16px 16px; }
+    .hero { padding: 0 16px 32px; }
+    main { padding: 24px 16px 48px; }
+    .titolare-grid { grid-template-columns: 1fr; gap: 4px; }
+    .titolare-grid dt { color: var(--text-secondary); font-size: 12px; margin-top: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-mark">📅</div>
+    <div class="header-text">
+      <h1>PrenotaPrima · Lombardia</h1>
+      <p>prenotaprima.app</p>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h2>Termini<br>di Servizio</h2>
+    <div class="hero-meta">
+      <span class="badge">📄 Versione 1.0</span>
+      <span class="badge">🗓 Marzo 2026</span>
+      <span class="badge">⚖️ Legge italiana</span>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- 1. Premessa -->
+  <div class="section highlight">
+    <div class="section-num">Articolo 1</div>
+    <h2>Premessa e accettazione</h2>
+    <p>I presenti Termini di Servizio disciplinano l'accesso e l'utilizzo dell'applicazione mobile <strong>PrenotaPrima</strong>, disponibile per dispositivi iOS e Android, fornita da:</p>
+    <dl class="titolare-grid">
+      <dt>Fornitore</dt>
+      <dd>Greta Coletti</dd>
+      <dt>Indirizzo</dt>
+      <dd>Via Domodossola 21, 20145 Milano (MI)</dd>
+      <dt>Email</dt>
+      <dd><a href="mailto:greta.coletti8@gmail.com">greta.coletti8@gmail.com</a></dd>
+    </dl>
+    <p>Scaricando, installando o utilizzando l'App, l'utente dichiara di aver letto, compreso e accettato integralmente i presenti Termini. Chi non accetta i Termini è tenuto a non utilizzare l'App e a disinstallarla immediatamente.</p>
+    <p>I presenti Termini vanno letti congiuntamente alla <strong>Privacy Policy</strong>, disponibile nella sezione Impostazioni › Privacy e dati dell'App.</p>
+  </div>
+
+  <!-- 2. Descrizione -->
+  <div class="section">
+    <div class="section-num">Articolo 2</div>
+    <h2>Descrizione del servizio</h2>
+    <p>PrenotaPrima offre le seguenti funzionalità:</p>
+    <ul>
+      <li>Monitoraggio automatico della disponibilità di visite ed esami SSN sul portale regionale prenotasalute.regione.lombardia.it</li>
+      <li>Notifica all'utente quando si libera uno slot compatibile con le preferenze impostate</li>
+      <li>Prenotazione di appuntamenti SSN sul portale regionale, previo consenso esplicito dell'utente per ogni singola prenotazione</li>
+      <li>Gestione di profili multipli per il nucleo familiare</li>
+    </ul>
+    <p>Il servizio è attualmente disponibile esclusivamente per la <strong>Regione Lombardia</strong> ed è erogato a titolo completamente gratuito.</p>
+    <div class="alert amber">
+      <span class="alert-icon">⚠️</span>
+      <span>PrenotaPrima non è un operatore sanitario, non eroga prestazioni mediche e non ha alcun rapporto contrattuale con il Servizio Sanitario Nazionale o con Regione Lombardia. L'App agisce esclusivamente come strumento tecnico che automatizza, per conto dell'utente, operazioni che l'utente stesso potrebbe compiere manualmente sul portale SSN.</span>
+    </div>
+  </div>
+
+  <!-- 3. Requisiti -->
+  <div class="section">
+    <div class="section-num">Articolo 3</div>
+    <h2>Requisiti per l'utilizzo</h2>
+    <p>Per utilizzare l'App, l'utente deve:</p>
+    <ul>
+      <li>Avere compiuto 18 anni di età</li>
+      <li>Essere residente o domiciliato in Italia</li>
+      <li>Disporre di un dispositivo iOS o Android compatibile con la versione corrente dell'App</li>
+      <li>Disporre di una connessione a Internet</li>
+      <li>Fornire dati personali e sanitari veritieri, accurati e aggiornati</li>
+    </ul>
+    <p>Creando un account, l'utente dichiara sotto la propria responsabilità di soddisfare tutti i requisiti sopra indicati. Il Fornitore si riserva il diritto di sospendere o chiudere account per cui emergano fondati motivi di ritenere non soddisfatti tali requisiti.</p>
+  </div>
+
+  <!-- 4. Account -->
+  <div class="section">
+    <div class="section-num">Articolo 4</div>
+    <h2>Registrazione e account</h2>
+
+    <div class="subsection">
+      <h3>4.1 Creazione dell'account</h3>
+      <p>L'utente può creare un account tramite indirizzo email e password, oppure tramite autenticazione OAuth con Google o Apple. L'utente è responsabile della veridicità delle informazioni fornite in fase di registrazione.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>4.2 Sicurezza delle credenziali</h3>
+      <p>L'utente è responsabile della riservatezza delle proprie credenziali di accesso e di tutte le attività effettuate tramite il proprio account. In caso di sospetto accesso non autorizzato, l'utente deve notificarlo immediatamente al Fornitore all'indirizzo <a href="mailto:greta.coletti8@gmail.com" style="color:var(--green)">greta.coletti8@gmail.com</a>.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>4.3 Un account per utente</h3>
+      <p>Non è consentito creare più account per la stessa persona fisica. La gestione di prenotazioni per familiari avviene tramite la funzione "Profili" all'interno di un unico account.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>4.4 Cancellazione dell'account</h3>
+      <p>L'utente può cancellare il proprio account in qualsiasi momento dalla sezione <strong>Impostazioni › Elimina account</strong>. La cancellazione comporta l'eliminazione immediata e irreversibile di tutti i dati associati, inclusi profili, monitoraggi e storico prenotazioni. I monitoraggi attivi vengono automaticamente disattivati.</p>
+    </div>
+  </div>
+
+  <!-- 5. Profili familiari -->
+  <div class="section warning">
+    <div class="section-num">Articolo 5</div>
+    <h2>Gestione di profili per familiari</h2>
+    <p>L'App consente di creare profili per familiari o conviventi, al fine di gestire prenotazioni SSN per loro conto. Creando un profilo per un terzo, l'utente dichiara:</p>
+    <ul>
+      <li>Di aver ottenuto il consenso esplicito del soggetto rappresentato al trattamento dei suoi dati sanitari tramite l'App</li>
+      <li>Di essere il genitore o tutore legale del soggetto, qualora questi sia minorenne</li>
+      <li>Di utilizzare il profilo esclusivamente per finalità lecite e nell'interesse del soggetto rappresentato</li>
+    </ul>
+    <p>Il Fornitore declina ogni responsabilità per l'utilizzo di profili di terzi senza il consenso degli interessati. L'utente risponde personalmente di eventuali danni causati a terzi da un utilizzo non autorizzato.</p>
+  </div>
+
+  <!-- 6. Funzionamento tecnico -->
+  <div class="section">
+    <div class="section-num">Articolo 6</div>
+    <h2>Funzionamento tecnico e limitazioni</h2>
+
+    <div class="subsection">
+      <h3>6.1 Natura del servizio</h3>
+      <p>L'App accede al portale prenotasalute.regione.lombardia.it utilizzando i dati forniti dall'utente, tramite un sistema automatizzato (browser headless). Questo sistema replica le azioni che l'utente compirebbe manualmente sul portale.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>6.2 Dipendenza dal portale SSN</h3>
+      <p>Il funzionamento dell'App dipende interamente dalla disponibilità e dal corretto funzionamento del portale SSN Lombardia, su cui il Fornitore non ha alcun controllo. Il Fornitore non garantisce:</p>
+      <ul>
+        <li>La continuità del servizio in caso di manutenzione, modifica o interruzione del portale SSN</li>
+        <li>La correttezza o completezza dei dati di disponibilità restituiti dal portale</li>
+        <li>Il successo di ogni tentativo di prenotazione</li>
+      </ul>
+      <div class="alert amber">
+        <span class="alert-icon">⚠️</span>
+        <span>Il portale SSN Lombardia non fornisce sempre una conferma di prenotazione affidabile. La schermata di conferma visualizzata nell'App indica che la procedura sul portale è stata completata, ma non costituisce garanzia assoluta dell'avvenuta registrazione dell'appuntamento. L'utente è invitato a verificare autonomamente la prenotazione contattando la struttura sanitaria.</span>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <h3>6.3 Frequenza di monitoraggio</h3>
+      <p>Il sistema verifica la disponibilità ogni 10 minuti. Questo intervallo può variare in caso di sovraccarico del sistema o manutenzione. Il Fornitore adotta misure per non sovraccaricare il portale SSN, in conformità ai principi di uso responsabile dei sistemi informatici pubblici.</p>
+    </div>
+  </div>
+
+  <!-- 7. Prenotazione automatica -->
+  <div class="section warning">
+    <div class="section-num">Articolo 7</div>
+    <h2>Prenotazione automatica</h2>
+    <p>La funzionalità di prenotazione automatica consente all'App di prenotare un appuntamento SSN per conto dell'utente, previo consenso esplicito per ogni singola operazione.</p>
+    <p>Prima di ogni prenotazione, l'App richiede all'utente una <strong>conferma esplicita</strong> che include il riepilogo dei dettagli dell'appuntamento (data, orario, struttura, paziente). La prenotazione viene eseguita solo dopo tale conferma.</p>
+    <div class="alert amber">
+      <span class="alert-icon">⚠️</span>
+      <span>Una volta confermata, la prenotazione <strong>non può essere annullata tramite l'App</strong>. Eventuali disdette devono essere effettuate direttamente sul portale SSN Lombardia o contattando la struttura sanitaria. L'utente è responsabile di gestire tempestivamente la disdetta in caso di impossibilità a presentarsi.</span>
+    </div>
+    <p>Il Fornitore non è responsabile per appuntamenti prenotati per errore a seguito di una conferma esplicita dell'utente, né per mancate presentazioni che potrebbero comportare conseguenze nell'ambito del sistema SSN.</p>
+  </div>
+
+  <!-- 8. Obblighi utente -->
+  <div class="section">
+    <div class="section-num">Articolo 8</div>
+    <h2>Obblighi e responsabilità dell'utente</h2>
+    <p>L'utente si impegna a:</p>
+    <ul>
+      <li>Fornire dati personali e sanitari veritieri, aggiornati e corretti</li>
+      <li>Mantenere aggiornati i propri dati (codice fiscale, tessera sanitaria, codici ricetta)</li>
+      <li>Utilizzare l'App esclusivamente per prenotare visite SSN a cui ha effettivamente diritto</li>
+      <li>Non utilizzare l'App per finalità fraudolente o per prenotare appuntamenti che non si intende onorare</li>
+      <li>Non tentare di sovraccaricare, compromettere o interferire con il funzionamento dell'App o del portale SSN</li>
+      <li>Non tentare di accedere ai dati di altri utenti</li>
+      <li>Non utilizzare l'App per conto di terzi senza il loro consenso esplicito</li>
+    </ul>
+    <p>L'utente è l'unico responsabile della correttezza dei dati inseriti. Il Fornitore non verifica l'esattezza dei codici fiscali, dei codici ricetta o degli altri dati sanitari inseriti e non risponde per prenotazioni non andate a buon fine a causa di dati errati forniti dall'utente.</p>
+  </div>
+
+  <!-- 9. Limitazione responsabilità -->
+  <div class="section danger">
+    <div class="section-num">Articolo 9</div>
+    <h2>Limitazione di responsabilità del Fornitore</h2>
+    <p>Nei limiti consentiti dalla legge applicabile e fatto salvo quanto inderogabilmente previsto dalla normativa a tutela dei consumatori (D.Lgs. 206/2005), il Fornitore non è responsabile per:</p>
+    <ul>
+      <li>Interruzioni, malfunzionamenti o modifiche del portale SSN Lombardia che rendano impossibile o parziale l'erogazione del servizio</li>
+      <li>Mancate notifiche dovute a problemi tecnici del dispositivo, della rete o del servizio di notifiche push (Firebase Cloud Messaging)</li>
+      <li>Prenotazioni non andate a buon fine per causa imputabile al portale SSN, a dati errati dell'utente o a indisponibilità tecnica dello slot selezionato</li>
+      <li>Conseguenze derivanti dall'impossibilità di disdire una prenotazione tramite l'App</li>
+      <li>Danni indiretti, perdita di chance o altri danni consequenziali derivanti dall'uso o dall'impossibilità di uso dell'App</li>
+      <li>Modifiche unilaterali apportate da Regione Lombardia al portale SSN che rendano temporaneamente o permanentemente non funzionante l'App</li>
+    </ul>
+    <p>Il servizio è fornito "così com'è" (<em>as is</em>) e "come disponibile" (<em>as available</em>), senza garanzie di continuità, assenza di errori o idoneità a uno scopo specifico, nei limiti consentiti dalla legge.</p>
+  </div>
+
+  <!-- 10. Sospensione -->
+  <div class="section">
+    <div class="section-num">Articolo 10</div>
+    <h2>Sospensione e interruzione del servizio</h2>
+    <p>Il Fornitore si riserva il diritto di:</p>
+    <ul>
+      <li>Sospendere temporaneamente il servizio per manutenzione, aggiornamenti o cause di forza maggiore, dandone comunicazione con ragionevole preavviso ove possibile</li>
+      <li>Sospendere o chiudere l'account di un utente che violi i presenti Termini, previa comunicazione all'indirizzo email registrato</li>
+      <li>Interrompere definitivamente il servizio, con preavviso di almeno <strong>30 giorni</strong> comunicato tramite notifica in-app e/o email</li>
+    </ul>
+    <p>In caso di interruzione definitiva del servizio, il Fornitore garantirà all'utente la possibilità di esportare o cancellare i propri dati prima della chiusura.</p>
+  </div>
+
+  <!-- 11. Proprietà intellettuale -->
+  <div class="section">
+    <div class="section-num">Articolo 11</div>
+    <h2>Proprietà intellettuale</h2>
+    <p>L'App, il suo codice sorgente, il design, i loghi, i testi e tutti gli altri elementi che la compongono sono di proprietà esclusiva del Fornitore e sono protetti dalle leggi applicabili in materia di proprietà intellettuale.</p>
+    <p>All'utente è concessa una licenza personale, non esclusiva, non trasferibile e revocabile per utilizzare l'App esclusivamente per le finalità previste dai presenti Termini. È vietato:</p>
+    <ul>
+      <li>Copiare, modificare, distribuire o creare opere derivate dall'App</li>
+      <li>Decompilare, disassemblare o tentare di estrarre il codice sorgente dell'App</li>
+      <li>Rimuovere o alterare avvisi di copyright o altri diritti di proprietà</li>
+      <li>Utilizzare il nome, il logo o i marchi di PrenotaPrima senza autorizzazione scritta del Fornitore</li>
+    </ul>
+  </div>
+
+  <!-- 12. Modifiche termini -->
+  <div class="section">
+    <div class="section-num">Articolo 12</div>
+    <h2>Modifiche ai presenti Termini</h2>
+    <p>Il Fornitore si riserva il diritto di modificare i presenti Termini in qualsiasi momento. Le modifiche saranno comunicate all'utente tramite:</p>
+    <ul>
+      <li>Notifica in-app, con almeno <strong>15 giorni di preavviso</strong> per modifiche sostanziali</li>
+      <li>Email all'indirizzo registrato, per modifiche che incidano significativamente sui diritti dell'utente</li>
+    </ul>
+    <p>L'uso continuato dell'App dopo la data di entrata in vigore delle modifiche costituisce accettazione dei nuovi Termini. Chi non accetta le modifiche ha il diritto di cancellare il proprio account prima della data di entrata in vigore.</p>
+    <p>La versione aggiornata dei Termini è sempre disponibile nella sezione <strong>Impostazioni › Privacy e dati</strong> dell'App.</p>
+  </div>
+
+  <!-- 13. Legge applicabile -->
+  <div class="section">
+    <div class="section-num">Articolo 13</div>
+    <h2>Legge applicabile e foro competente</h2>
+    <p>I presenti Termini sono regolati dalla <strong>legge italiana</strong>. Per qualsiasi controversia relativa all'interpretazione, validità o esecuzione dei presenti Termini, le parti convengono la competenza esclusiva del <strong>Tribunale di Milano</strong>, fatte salve le disposizioni inderogabili del Codice del Consumo (D.Lgs. 206/2005) che attribuiscono competenza al giudice del luogo di residenza o domicilio del consumatore.</p>
+    <p>In conformità all'art. 14 del Regolamento UE 524/2013, si informa che la Commissione Europea ha istituito una piattaforma per la risoluzione online delle controversie (ODR), accessibile all'indirizzo: <a href="https://ec.europa.eu/consumers/odr" style="color:var(--green)" target="_blank">ec.europa.eu/consumers/odr</a></p>
+  </div>
+
+  <!-- 14. Disposizioni finali -->
+  <div class="section">
+    <div class="section-num">Articolo 14</div>
+    <h2>Disposizioni finali</h2>
+    <p>Qualora una o più clausole dei presenti Termini siano dichiarate nulle o inefficaci, le restanti clausole rimarranno pienamente valide ed efficaci.</p>
+    <p>Il mancato esercizio da parte del Fornitore di un diritto previsto dai presenti Termini non costituisce rinuncia a tale diritto.</p>
+    <p>I presenti Termini costituiscono l'intero accordo tra le parti in relazione all'utilizzo dell'App e sostituiscono qualsiasi precedente accordo, comunicazione o intesa, scritta o orale, avente il medesimo oggetto.</p>
+    <p>Per qualsiasi comunicazione relativa ai presenti Termini: <a href="mailto:greta.coletti8@gmail.com" style="color:var(--green)">greta.coletti8@gmail.com</a></p>
+  </div>
+
+</main>
+
+<footer>
+  <p>
+    <strong>Greta Coletti</strong> — Fornitore del servizio<br>
+    Via Domodossola 21, 20145 Milano — <a href="mailto:greta.coletti8@gmail.com" style="color:rgba(255,255,255,0.5)">greta.coletti8@gmail.com</a><br><br>
+    Documento generato il 26 marzo 2026 — Versione 1.0<br>
+    <span style="color:rgba(255,255,255,0.25);font-size:12px">PrenotaPrima · Lombardia</span>
+  </p>
+</footer>
+
+</body>
+</html>
