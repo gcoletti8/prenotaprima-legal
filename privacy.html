@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy · PrenotaPrima</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0E1A2E;
+    --green: #2E7D52;
+    --bg: #F2F2F7;
+    --card: #FFFFFF;
+    --text: #1C1C1E;
+    --text-secondary: #6B6B6B;
+    --border: #E5E5EA;
+    --red: #C0392B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* Header */
+  header {
+    background: var(--navy);
+    padding: 28px 24px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    background: var(--green);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .header-text h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  .header-text p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 1px;
+  }
+
+  /* Hero */
+  .hero {
+    background: var(--navy);
+    padding: 0 24px 40px;
+    border-bottom: 3px solid var(--green);
+  }
+
+  .hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .hero h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(26px, 5vw, 38px);
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* Main content */
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+  }
+
+  /* Sections */
+  .section {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 12px rgba(14,26,46,0.06);
+    border-left: 4px solid transparent;
+  }
+
+  .section.highlight {
+    border-left-color: var(--green);
+  }
+
+  .section.warning {
+    border-left-color: #D97706;
+  }
+
+  .section-num {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 8px;
+  }
+
+  .section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .section p {
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    font-size: 15px;
+  }
+
+  .section p:last-child { margin-bottom: 0; }
+
+  /* Tables */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 16px 0;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  thead {
+    background: var(--navy);
+  }
+
+  thead th {
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+  }
+
+  tbody tr:last-child { border-bottom: none; }
+
+  tbody tr:nth-child(even) {
+    background: #F9F9FB;
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    color: var(--text-secondary);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  tbody td:first-child {
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  /* Lists */
+  .section ul {
+    list-style: none;
+    margin: 12px 0;
+  }
+
+  .section ul li {
+    font-size: 15px;
+    color: var(--text-secondary);
+    padding: 6px 0 6px 20px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section ul li:last-child { border-bottom: none; }
+
+  .section ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 600;
+  }
+
+  /* Subsection */
+  .subsection {
+    margin: 20px 0;
+  }
+
+  .subsection h3 {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  /* Titolare card */
+  .titolare-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px 16px;
+    margin: 16px 0;
+    font-size: 15px;
+  }
+
+  .titolare-grid dt {
+    font-weight: 500;
+    color: var(--navy);
+    white-space: nowrap;
+  }
+
+  .titolare-grid dd {
+    color: var(--text-secondary);
+  }
+
+  .titolare-grid a {
+    color: var(--green);
+    text-decoration: none;
+  }
+
+  /* Security badges */
+  .security-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 16px 0;
+  }
+
+  .security-item {
+    background: var(--bg);
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .security-item span:first-child {
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--navy);
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  footer p {
+    color: rgba(255,255,255,0.4);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  footer strong {
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* Rights grid */
+  .rights-grid {
+    display: grid;
+    gap: 10px;
+    margin: 16px 0;
+  }
+
+  .right-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 12px;
+    background: var(--bg);
+    border-radius: 10px;
+  }
+
+  .right-badge {
+    background: var(--navy);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .right-item p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .right-item strong {
+    display: block;
+    color: var(--text);
+    margin-bottom: 2px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 480px) {
+    .section { padding: 20px 16px; }
+    header { padding: 20px 16px 16px; }
+    .hero { padding: 0 16px 32px; }
+    main { padding: 24px 16px 48px; }
+    .titolare-grid { grid-template-columns: 1fr; gap: 4px; }
+    .titolare-grid dt { color: var(--text-secondary); font-size: 12px; margin-top: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-mark">📅</div>
+    <div class="header-text">
+      <h1>PrenotaPrima · Lombardia</h1>
+      <p>prenotaprima.app</p>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <h2>Informativa sul<br>trattamento dei<br>dati personali</h2>
+    <div class="hero-meta">
+      <span class="badge">📋 Artt. 13–14 GDPR UE 2016/679</span>
+      <span class="badge">📌 Versione 1.0</span>
+      <span class="badge">🗓 Marzo 2026</span>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- 1. Titolare -->
+  <div class="section highlight">
+    <div class="section-num">Articolo 1</div>
+    <h2>Titolare del trattamento</h2>
+    <dl class="titolare-grid">
+      <dt>Nome e cognome</dt>
+      <dd>Greta Coletti</dd>
+      <dt>Codice fiscale</dt>
+      <dd>CLTGRT93M48F205V</dd>
+      <dt>Indirizzo</dt>
+      <dd>Via Domodossola 21, 20145 Milano (MI)</dd>
+      <dt>Email privacy</dt>
+      <dd><a href="mailto:greta.coletti8@gmail.com">greta.coletti8@gmail.com</a></dd>
+    </dl>
+    <p>Per qualsiasi questione relativa al trattamento dei propri dati personali, l'interessato può contattare il Titolare all'indirizzo email indicato sopra.</p>
+  </div>
+
+  <!-- 2. Descrizione -->
+  <div class="section">
+    <div class="section-num">Articolo 2</div>
+    <h2>Descrizione del servizio</h2>
+    <p>PrenotaPrima è un'applicazione mobile (iOS e Android) che consente agli utenti registrati di monitorare la disponibilità di visite ed esami in regime SSN sul portale regionale <strong>prenotasalute.regione.lombardia.it</strong>, ricevere notifiche quando si libera uno slot e, previo consenso esplicito, prenotare un appuntamento direttamente tramite l'app.</p>
+    <p>Il servizio agisce come <strong>agente tecnico dell'utente</strong>: accede al portale SSN Lombardia utilizzando esclusivamente i dati forniti dall'utente stesso, esattamente come farebbe l'utente manualmente. PrenotaPrima non è un operatore sanitario e non eroga prestazioni mediche.</p>
+    <p>Il servizio è attualmente disponibile per la sola Regione Lombardia ed è erogato a titolo gratuito.</p>
+  </div>
+
+  <!-- 3. Categorie dati -->
+  <div class="section">
+    <div class="section-num">Articolo 3</div>
+    <h2>Categorie di dati personali trattati</h2>
+
+    <div class="subsection">
+      <h3>3.1 Dati di account</h3>
+      <ul>
+        <li>Indirizzo email</li>
+        <li>Password (conservata esclusivamente in forma di hash crittografico, non leggibile da nessuno)</li>
+        <li>Provider di autenticazione OAuth (Google o Apple), se utilizzato</li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <h3>3.2 Dati sanitari dei profili <span style="color:var(--red);font-size:12px;font-weight:400;text-transform:none;letter-spacing:0">(categoria speciale art. 9 GDPR)</span></h3>
+      <ul>
+        <li>Nome o soprannome del paziente (es. "Giulio", "Nonna")</li>
+        <li>Codice fiscale del paziente</li>
+        <li>Ultime 5 cifre della tessera sanitaria</li>
+        <li>Numero di cellulare del paziente</li>
+        <li>Codice ricetta SSN</li>
+        <li>Dati relativi ad appuntamenti esistenti (data, struttura, prestazione)</li>
+      </ul>
+      <p style="margin-top:12px;font-size:14px;background:rgba(46,125,82,0.08);border-radius:8px;padding:12px;color:var(--text);">🔒 Tutti i dati sanitari sono <strong>cifrati a riposo</strong> nel database mediante cifratura a livello applicativo (AES-128 con HMAC, libreria Fernet). La chiave di cifratura non è mai conservata nel database.</p>
+    </div>
+
+    <div class="subsection">
+      <h3>3.3 Dati di utilizzo</h3>
+      <ul>
+        <li>Monitoraggi creati (province selezionate, intervallo di date, scenario di utilizzo)</li>
+        <li>Storico notifiche ricevute</li>
+        <li>Storico prenotazioni effettuate tramite l'app</li>
+        <li>Token dispositivo per le notifiche push (FCM)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 4. Finalità -->
+  <div class="section">
+    <div class="section-num">Articolo 4</div>
+    <h2>Finalità del trattamento e base giuridica</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Finalità</th>
+            <th>Base giuridica</th>
+            <th>Obbligatorietà</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Erogazione del servizio (creazione account, autenticazione)</td>
+            <td>Esecuzione del contratto (art. 6.1.b GDPR)</td>
+            <td>Obbligatorio per usare il servizio</td>
+          </tr>
+          <tr>
+            <td>Accesso al portale SSN per conto dell'utente (monitoraggio e prenotazione)</td>
+            <td>Consenso esplicito (artt. 6.1.a e 9.2.a GDPR)</td>
+            <td>Obbligatorio per le funzionalità principali</td>
+          </tr>
+          <tr>
+            <td>Invio notifiche push</td>
+            <td>Consenso (art. 6.1.a GDPR)</td>
+            <td>Facoltativo</td>
+          </tr>
+          <tr>
+            <td>Invio email di riepilogo</td>
+            <td>Consenso (art. 6.1.a GDPR)</td>
+            <td>Facoltativo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>I dati sanitari non sono utilizzati per finalità diverse da quelle indicate, non sono ceduti a terzi a fini commerciali e non sono oggetto di decisioni automatizzate o profilazione.</p>
+  </div>
+
+  <!-- 5. Responsabili -->
+  <div class="section">
+    <div class="section-num">Articolo 5</div>
+    <h2>Responsabili del trattamento e sub-processor</h2>
+    <p>I dati sono trattati dai seguenti soggetti terzi, nominati responsabili del trattamento ai sensi dell'art. 28 GDPR:</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Fornitore</th>
+            <th>Servizio</th>
+            <th>Sede / Server</th>
+            <th>Garanzie</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Supabase Inc.</td>
+            <td>Database e autenticazione</td>
+            <td>AWS eu-west-2 (Londra, UK)</td>
+            <td>DPA + decisione adeguatezza UE-UK</td>
+          </tr>
+          <tr>
+            <td>Render Inc.</td>
+            <td>Hosting backend</td>
+            <td>USA</td>
+            <td>DPA + SCCs</td>
+          </tr>
+          <tr>
+            <td>Google LLC (Firebase)</td>
+            <td>Notifiche push (FCM)</td>
+            <td>USA</td>
+            <td>Google Cloud DPA + SCCs</td>
+          </tr>
+          <tr>
+            <td>Google LLC (Gmail SMTP)</td>
+            <td>Notifiche email</td>
+            <td>USA</td>
+            <td>Google Workspace DPA + SCCs</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>I trasferimenti di dati verso paesi terzi (USA) avvengono in presenza delle garanzie appropriate previste dal Capo V del GDPR (Clausole Contrattuali Standard). Per Supabase, i dati risiedono su server AWS nella regione eu-west-2 (Londra, Regno Unito); il trasferimento è coperto dalla decisione di adeguatezza della Commissione Europea nei confronti del Regno Unito.</p>
+  </div>
+
+  <!-- 6. Modalità -->
+  <div class="section">
+    <div class="section-num">Articolo 6</div>
+    <h2>Modalità di trattamento</h2>
+    <p>Il trattamento avviene con strumenti informatici e telematici. I dati sanitari sono:</p>
+    <ul>
+      <li>Cifrati a livello applicativo prima di essere salvati nel database (AES-128 con HMAC — standard Fernet)</li>
+      <li>Accessibili in chiaro esclusivamente dal server backend durante l'elaborazione delle richieste, per il tempo strettamente necessario</li>
+      <li>Non registrati nei file di log del sistema</li>
+      <li>Non visibili agli operatori del servizio nella loro forma in chiaro</li>
+    </ul>
+    <p>I dati transitano sul server esclusivamente per compilare il form del portale SSN Lombardia per conto dell'utente. Il server non conserva sessioni attive sul portale SSN tra un accesso e l'altro.</p>
+  </div>
+
+  <!-- 7. Conservazione -->
+  <div class="section">
+    <div class="section-num">Articolo 7</div>
+    <h2>Periodo di conservazione</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Categoria di dati</th>
+            <th>Periodo di conservazione</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dati di account e dati sanitari dei profili</td>
+            <td>Fino alla cancellazione dell'account o su richiesta dell'interessato — cancellazione immediata</td>
+          </tr>
+          <tr>
+            <td>Storico monitoraggi e prenotazioni</td>
+            <td>Fino alla cancellazione dell'account o cancellazione manuale da parte dell'utente</td>
+          </tr>
+          <tr>
+            <td>Storico notifiche</td>
+            <td>6 mesi dalla data della notifica</td>
+          </tr>
+          <tr>
+            <td>Token FCM (notifiche push)</td>
+            <td>Fino alla disattivazione delle notifiche o alla cancellazione dell'account</td>
+          </tr>
+          <tr>
+            <td>Account inattivi</td>
+            <td>Comunicazione all'utente dopo 24 mesi di inattività; cancellazione su conferma o su successiva inattività</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 8. Minori -->
+  <div class="section warning">
+    <div class="section-num">Articolo 8</div>
+    <h2>Trattamento di dati di minori</h2>
+    <p>L'app consente agli utenti di creare profili per familiari, inclusi soggetti minorenni, al fine di gestire prenotazioni SSN per loro conto.</p>
+    <p>Ai sensi dell'art. 8 GDPR e dell'art. 2-quinquies del D.Lgs. 196/2003, in Italia il consenso al trattamento di dati personali di minori può essere prestato autonomamente dal minore che abbia compiuto <strong>14 anni</strong>. Per i minori di 14 anni, il consenso deve essere prestato o autorizzato dal titolare della responsabilità genitoriale.</p>
+    <p>Creando un profilo per un soggetto minorenne, l'utente dichiara di essere il genitore o il tutore legale del minore e di prestare il consenso al trattamento dei suoi dati sanitari in tale qualità.</p>
+    <p><strong>L'app non è destinata all'utilizzo diretto da parte di minori di 14 anni.</strong></p>
+  </div>
+
+  <!-- 9. Diritti -->
+  <div class="section">
+    <div class="section-num">Articolo 9</div>
+    <h2>Diritti dell'interessato</h2>
+    <p>Ai sensi degli artt. 15–22 del GDPR, l'interessato ha diritto di:</p>
+    <div class="rights-grid">
+      <div class="right-item">
+        <span class="right-badge">Art. 15</span>
+        <div><strong>Accesso</strong><p>Ottenere conferma del trattamento e copia dei dati</p></div>
+      </div>
+      <div class="right-item">
+        <span class="right-badge">Art. 16</span>
+        <div><strong>Rettifica</strong><p>Correggere dati inesatti o incompleti</p></div>
+      </div>
+      <div class="right-item">
+        <span class="right-badge">Art. 17</span>
+        <div><strong>Cancellazione</strong><p>Ottenere la cancellazione dei propri dati (diritto all'oblio)</p></div>
+      </div>
+      <div class="right-item">
+        <span class="right-badge">Art. 18</span>
+        <div><strong>Limitazione</strong><p>Limitare il trattamento in determinati casi previsti dal GDPR</p></div>
+      </div>
+      <div class="right-item">
+        <span class="right-badge">Art. 20</span>
+        <div><strong>Portabilità</strong><p>Ricevere i propri dati in formato strutturato e leggibile da macchina</p></div>
+      </div>
+      <div class="right-item">
+        <span class="right-badge">Art. 21</span>
+        <div><strong>Opposizione</strong><p>Opporsi al trattamento in qualsiasi momento</p></div>
+      </div>
+      <div class="right-item">
+        <span class="right-badge">Revoca</span>
+        <div><strong>Revoca del consenso</strong><p>Revocare in qualsiasi momento il consenso prestato, senza pregiudizio per la liceità del trattamento precedente</p></div>
+      </div>
+    </div>
+    <p>Per esercitare i propri diritti, l'interessato può inviare una richiesta a: <a href="mailto:greta.coletti8@gmail.com" style="color:var(--green)">greta.coletti8@gmail.com</a>. Il Titolare risponderà entro 30 giorni dalla ricezione della richiesta, come previsto dall'art. 12 GDPR.</p>
+    <p>L'interessato ha inoltre il diritto di proporre reclamo all'Autorità di controllo competente. In Italia: <strong>Garante per la protezione dei dati personali</strong>, Piazza Venezia 11, 00187 Roma — <a href="https://www.garanteprivacy.it" style="color:var(--green)">www.garanteprivacy.it</a>.</p>
+  </div>
+
+  <!-- 10. Revoca -->
+  <div class="section">
+    <div class="section-num">Articolo 10</div>
+    <h2>Revoca del consenso</h2>
+    <p>Il consenso al trattamento dei dati sanitari è revocabile in qualsiasi momento, senza costi e senza necessità di giustificazione, tramite:</p>
+    <ul>
+      <li>La funzione <strong>"Elimina account"</strong> disponibile nella sezione Impostazioni dell'app, che cancella immediatamente tutti i dati personali e sanitari associati all'account</li>
+      <li>Richiesta scritta inviata a <a href="mailto:greta.coletti8@gmail.com" style="color:var(--green)">greta.coletti8@gmail.com</a></li>
+    </ul>
+    <p>La revoca del consenso non pregiudica la liceità del trattamento effettuato prima della revoca, ma impedisce qualsiasi ulteriore trattamento dei dati sanitari. La revoca del consenso al trattamento dei dati sanitari comporta l'impossibilità di utilizzare le funzionalità principali del servizio.</p>
+  </div>
+
+  <!-- 11. Sicurezza -->
+  <div class="section highlight">
+    <div class="section-num">Articolo 11</div>
+    <h2>Misure di sicurezza</h2>
+    <p>Il Titolare adotta misure tecniche e organizzative adeguate a garantire un livello di sicurezza proporzionato al rischio:</p>
+    <div class="security-grid">
+      <div class="security-item"><span>🔐</span><span>Cifratura dati sanitari a riposo (AES-128 con HMAC)</span></div>
+      <div class="security-item"><span>🗝</span><span>Chiave di cifratura separata dal database</span></div>
+      <div class="security-item"><span>🔒</span><span>Trasmissione esclusivamente via HTTPS/TLS</span></div>
+      <div class="security-item"><span>🪙</span><span>Autenticazione JWT a breve scadenza con refresh token</span></div>
+      <div class="security-item"><span>#️⃣</span><span>Hash crittografico delle password (mai in chiaro)</span></div>
+      <div class="security-item"><span>🛡</span><span>Accesso al database esclusivamente tramite backend autenticato</span></div>
+      <div class="security-item"><span>🔍</span><span>Audit periodico degli endpoint per filtraggio per utente</span></div>
+      <div class="security-item"><span>📵</span><span>Assenza di log contenenti dati sanitari in chiaro</span></div>
+    </div>
+  </div>
+
+  <!-- 12. Modifiche -->
+  <div class="section">
+    <div class="section-num">Articolo 12</div>
+    <h2>Modifiche alla presente informativa</h2>
+    <p>Il Titolare si riserva il diritto di modificare la presente informativa. In caso di modifiche sostanziali, gli utenti saranno informati tramite <strong>notifica in-app o email</strong> almeno 15 giorni prima dell'entrata in vigore delle modifiche. L'uso continuato dell'app dopo tale termine costituisce accettazione delle modifiche.</p>
+    <p>La versione aggiornata della presente informativa è sempre disponibile nella sezione <strong>Impostazioni › Privacy e dati</strong> dell'app.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>
+    <strong>Greta Coletti</strong> — Titolare del trattamento<br>
+    Via Domodossola 21, 20145 Milano — <a href="mailto:greta.coletti8@gmail.com" style="color:rgba(255,255,255,0.5)">greta.coletti8@gmail.com</a><br><br>
+    Documento generato il 26 marzo 2026 — Versione 1.0<br>
+    <span style="color:rgba(255,255,255,0.25);font-size:12px">PrenotaPrima · Lombardia</span>
+  </p>
+</footer>
+
+</body>
+</html>
